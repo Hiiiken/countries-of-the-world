@@ -5,20 +5,6 @@
     </div>
   </div>
 
-  <!-- <div>
-    {{ unicRegions() }}
-  </div> -->
-
-   <!-- <div>
-    {{ countries }}
-  </div> -->
-
-  <!-- <ul>
-    <li v-for="country in countries" :key="country">
-      {{ country.region }}
-    </li>
-  </ul> -->
-
   <div class="container">
     <div class="search-filter-group">
       <div class="serach-box">
@@ -26,7 +12,8 @@
         <input v-model="searchQuery" type="text" placeholder="Search for a country...">
       </div>
       <div class="filters-box">
-        <select>
+        <select v-model="filterRegions">
+          <option value="">Filter by Region</option>
           <option
             v-for="region in unicRegions()"
             :key="region"
@@ -54,8 +41,6 @@
         </country-card>
       </div>
     </div>
-
-    
   </div>
 </template>
 
@@ -77,7 +62,8 @@ export default {
       countryCapital: null,
       regions: null,
       errored: false,
-      searchQuery: null
+      searchQuery: null,
+      filterRegions: ''
     }
   },
   mounted() {
@@ -88,10 +74,6 @@ export default {
         console.log(error)
         this.errored = true
       })
-
-    // axios
-    //   .get('https://restcountries.com/v3.1/region/africa')
-    //   .then(response => this.regions = response)
   },
   methods: {
     onlyUnique(value, index, self) {
@@ -111,7 +93,12 @@ export default {
                       .split(" ")
                       .every(v => item.name.toLowerCase().includes(v))
         })
-      } else {
+      } else if (this.filterRegions) {
+        return this.countries.filter(item => {
+          return item.region === this.filterRegions
+        })
+      }
+      else {
         return this.countries
       }
     }
