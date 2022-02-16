@@ -5,17 +5,34 @@
     </div>
   </div>
 
+  <!-- <div>
+    {{ unicRegions() }}
+  </div> -->
+
+   <!-- <div>
+    {{ countries }}
+  </div> -->
+
+  <!-- <ul>
+    <li v-for="country in countries" :key="country">
+      {{ country.region }}
+    </li>
+  </ul> -->
+
   <div class="container">
     <div class="search-filter-group">
       <div class="serach-box">
         <i class="fa-solid fa-magnifying-glass"></i>
-        <input type="text" placeholder="Search for a country...">
+        <input v-model="searchQuery" type="text" placeholder="Search for a country...">
       </div>
       <div class="filters-box">
         <select>
-          <option value="">Filter by Region</option>
-          <option value="Africa">Africa</option>
-          <option value="Europe">Europe</option>
+          <option
+            v-for="region in unicRegions()"
+            :key="region"
+            :value="region">
+            {{ region }}
+          </option>
         </select>
       </div>
     </div>
@@ -26,7 +43,7 @@
     
     <div class="grid">
       <div class="col col-3" 
-        v-for="country in countries"
+        v-for="country in searchResult"
         :key="country">
         <country-card
           :country-flag="country.flags.png"
@@ -38,9 +55,7 @@
       </div>
     </div>
 
-    <!-- <div>
-      {{ countries }}
-    </div> -->
+    
   </div>
 </template>
 
@@ -54,14 +69,15 @@ export default {
   },
   data() {
     return {
-      countries: null,
+      countries: [],
       countryFlag: null,
       countryName: null,
       countryPopulation: null,
       countryRegion: null,
       countryCapital: null,
-
-      errored: false
+      regions: null,
+      errored: false,
+      searchQuery: null
     }
   },
   mounted() {
@@ -72,6 +88,33 @@ export default {
         console.log(error)
         this.errored = true
       })
+
+    // axios
+    //   .get('https://restcountries.com/v3.1/region/africa')
+    //   .then(response => this.regions = response)
+  },
+  methods: {
+    onlyUnique(value, index, self) {
+      return self.indexOf(value) === index;
+    },
+    unicRegions() {
+      let region = this.countries.map( c => c.region)
+      return region.filter(this.onlyUnique)
+    }
+  },
+  computed: {
+    searchResult() {
+      if (this.searchQuery) {
+        return this.countries.filter(item => {
+          return this.searchQuery
+                      .toLowerCase()
+                      .split(" ")
+                      .every(v => item.name.toLowerCase().includes(v))
+        })
+      } else {
+        return this.countries
+      }
+    }
   }
 }
 </script>
