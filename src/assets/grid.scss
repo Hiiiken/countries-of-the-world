@@ -40,8 +40,6 @@ html {
    width: 100%;
    padding-left: $base-unit;
    padding-right: $base-unit;
-
-   
 }
 
 ////////////////////////
@@ -239,4 +237,33 @@ html {
       flex: 100%;
       max-width: 100%;
    }
+}
+
+// CUSTOM
+@media only screen and (max-width: 1200px) {
+  .col-third-lg {
+    flex: 33.3333333333%;
+    max-width: 33.3333333333%;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .col-half-md {
+    flex: 50%;
+    max-width: 50%;
+  }
+}
+
+@media only screen and (max-width: 624px) {
+  .col-full-sm {
+    flex: 100%;
+    max-width: 100%;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .col-full-xs {
+    flex: 100%;
+    max-width: 100%;
+  }
 }

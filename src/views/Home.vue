@@ -29,7 +29,7 @@
     </section>
     
     <div class="grid">
-      <div class="col col-3" 
+      <div class="col col-3 col-third-lg col-half-md col-full-xs" 
         v-for="country in searchResult"
         :key="country">
         <country-card
@@ -146,28 +146,55 @@ export default {
         &:focus {
           outline: none;
         }
+
+        @media only screen and (max-width: 744px) {
+          min-width: auto;
+        }
+      }
+
+      @media only screen and (max-width: 520px) {
+        width: 100%;
+        margin-bottom: 16px;
+        padding: 16px;
       }
     }
 
-    .filters-box select {
-      background-color: white;
-      box-shadow: 1px 1px 20px rgba(0, 0, 0, .05);
-      padding: 16px 16px;
-      border-radius: 4px;
-      border: 2px solid transparent;
-      font-family: 'Nunito', sans-serif;
-      font-weight: 600;
-      font-size: 14px;
-
-      &:focus {
-        border: 2px solid hsl(209, 23%, 22%);
+    .filters-box {
+      @media only screen and (max-width: 520px) {
+        width: 100%;
       }
 
-      option {
-        font-weight: 600;
-        background: white;
+      select {
+        background-color: white;
+        box-shadow: 1px 1px 20px rgba(0, 0, 0, .05);
+        padding: 16px 16px;
         border-radius: 4px;
+        border: 2px solid transparent;
+        font-family: 'Nunito', sans-serif;
+        font-weight: 600;
+        font-size: 14px;
+  
+        &:focus {
+          border: 2px solid hsl(209, 23%, 22%);
+        }
+  
+        option {
+          font-weight: 600;
+          background: white;
+          border-radius: 4px;
+        }
+
+        @media only screen and (max-width: 520px) {
+          width: 100%;
+        }
       }
+
+      
+    }
+
+    @media only screen and (max-width: 520px) {
+      flex-direction: column;
+      align-items: flex-start;
     }
   }
 </style>
