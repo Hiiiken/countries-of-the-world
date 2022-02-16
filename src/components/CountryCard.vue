@@ -1,5 +1,5 @@
 <template>
-  <div class="country-card">
+  <div class="country-card" @click="aboutCountry()">
     <img class="country-flag" :src="countryFlag" alt="country flag">
     <div class="country-details">
       <h4 class="heading-3">{{ countryName }}</h4>
@@ -18,6 +18,11 @@
             'countryPopulation', 
             'countryRegion',
             'countryCapital'],
+    methods: {
+      aboutCountry() {
+        this.$router.push('/about'); 
+      }
+    }
   }
 </script>
 
@@ -28,6 +33,7 @@
     box-shadow: 1px 1px 20px rgba(0, 0, 0, .05);
     margin-bottom: 48px;
     overflow: hidden;
+    cursor: pointer;
     
     .country-flag {
       vertical-align: middle;
