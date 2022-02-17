@@ -1,11 +1,11 @@
 <template>
   <div class="country-card" @click="aboutCountry()">
-    <img class="country-flag" :src="countryFlag" alt="country flag">
+    <img class="country-flag" :src="country.flag" alt="country flag">
     <div class="country-details">
-      <h4 class="heading-3">{{ countryName }}</h4>
-      <p class="body-text-sm"><span>Population:</span> {{ countryPopulation }}</p>
-      <p class="body-text-sm"><span>Region:</span> {{ countryRegion }}</p>
-      <p class="body-text-sm"><span>Capital:</span> {{ countryCapital }}</p>
+      <h4 class="heading-3">{{ country.name }}</h4>
+      <p class="body-text-sm"><span>Population:</span> {{ country.population }}</p>
+      <p class="body-text-sm"><span>Region:</span> {{ country.region }}</p>
+      <p class="body-text-sm"><span>Capital:</span> {{ country.capital }}</p>
     </div>
   </div>
 </template>
@@ -13,14 +13,10 @@
 <script>
   export default {
     name: 'CountryCard',
-    props: ['countryFlag',
-            'countryName', 
-            'countryPopulation', 
-            'countryRegion',
-            'countryCapital'],
+    props: ['country'],
     methods: {
       aboutCountry() {
-        this.$router.push('/about'); 
+        this.$router.push('/country/' + this.country.name); 
       }
     }
   }

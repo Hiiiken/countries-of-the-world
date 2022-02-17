@@ -32,13 +32,7 @@
       <div class="col col-3 col-third-lg col-half-md col-full-xs" 
         v-for="country in searchResult"
         :key="country">
-        <country-card
-          :country-flag="country.flags.png"
-          :country-name="country.name"
-          :country-population="country.population"
-          :country-region="country.region"
-          :country-capital="country.capital">
-        </country-card>
+        <country-card :country="country"></country-card>
       </div>
     </div>
   </div>
