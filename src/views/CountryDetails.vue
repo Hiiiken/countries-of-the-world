@@ -9,14 +9,14 @@
 
     <div v-for="item in country" :key="item">
       <div class="grid">
-        <div class="col">
+        <div class="col col-lg">
           <img class="country-flag" :src="item.flag" alt="country flag">
         </div>
-        <div class="col">
+        <div class="col col-lg">
           <div class="country-details">
             <h2 class="country-title">{{ item.name }}</h2>
             <div class="grid">
-              <div class="col">
+              <div class="col col-xl">
                 <ul>
                   <li>
                     <p>
@@ -50,7 +50,7 @@
                   </li>
                 </ul>
               </div>
-              <div class="col">
+              <div class="col col-xl">
                 <ul>
                   <li>
                     <div class="country-domains">
@@ -144,6 +144,16 @@ export default {
     padding-right: 80px;
     height: 420px;
     object-fit: cover;
+
+    @media only screen and (max-width: 1200px) {
+      padding-right: 24px;
+      height: auto;
+    }
+
+    @media only screen and (max-width: 744px) {
+      // margin-bottom: 24px;
+      padding: 0;
+    }
   }
 
   .country-details {
@@ -181,6 +191,24 @@ export default {
       box-shadow: 1px 1px 5px rgba(0, 0, 0, .07);
       font-size: 14px;
       cursor: pointer;
+      transition: .3s all ease-in-out;
+
+      &:hover {
+        background-color: hsl(209, 23%, 22%);
+        color: white;
+      }
+    }
+
+    @media only screen and (max-width: 1200px) {
+      padding: 0;
+
+      .border-countries {
+        margin-top: 16px;
+      }
+    }
+    
+    @media only screen and (max-width: 744px) {
+      padding: 24px 0 50px;
     }
   }
 
@@ -203,7 +231,8 @@ export default {
     }
 
     &:hover {
-      background-color: hsl(0, 0%, 98%);
+      background-color: hsl(209, 23%, 22%);
+      color: white;
     }
   }
 </style>

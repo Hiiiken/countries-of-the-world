@@ -109,6 +109,11 @@ export default {
       box-shadow: 1px 1px 20px rgba(0, 0, 0, .05);
       padding: 16px 30px;
       border-radius: 4px;
+      transition: .3s all ease-in-out;
+
+      &:hover {
+        box-shadow: 1px 1px 20px hsla(209, 23%, 22%, 0.2);
+      }
 
       i {
         margin-right: 20px;
@@ -153,9 +158,17 @@ export default {
         font-family: 'Nunito', sans-serif;
         font-weight: 600;
         font-size: 14px;
+        transition: .3s all ease-in-out;
   
         &:focus {
-          border: 2px solid hsl(209, 23%, 22%);
+          // border: 2px solid hsl(209, 23%, 22%);
+          border: 2px solid transparent;
+          outline: none;
+          box-shadow: 1px 1px 20px hsla(209, 23%, 22%, 0.2);
+        }
+
+        &:hover {
+          box-shadow: 1px 1px 20px hsla(209, 23%, 22%, 0.2);
         }
   
         option {

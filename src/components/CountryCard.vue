@@ -30,6 +30,11 @@
     margin-bottom: 48px;
     overflow: hidden;
     cursor: pointer;
+    transition: .3s all ease-in-out;
+
+    &:hover {
+      box-shadow: 1px 1px 20px hsla(209, 23%, 22%, 0.2);
+    }
     
     .country-flag {
       vertical-align: middle;
