@@ -4,6 +4,11 @@
   <div>{{ country }}</div>
 
   <div class="container">
+    <button class="btn-back" @click="backButton()">
+      <i class="fa-solid fa-arrow-left-long"></i>
+      Back
+    </button>
+
     <div v-for="item in country" :key="item">
       <div class="grid">
         <div class="col">
@@ -95,6 +100,11 @@ export default {
         console.log(error)
         // this.errored = true
       })
+  },
+  methods: {
+    backButton() {
+      this.$router.push('/'); 
+    }
   }
 }
 </script>
@@ -142,6 +152,29 @@ export default {
       border-radius: 3px;
       box-shadow: 1px 1px 5px rgba(0, 0, 0, .07);
       font-size: 14px;
+    }
+  }
+
+  .btn-back {
+    background-color: white;
+    cursor: pointer;
+    border-radius: 3px;
+    box-shadow: 1px 1px 8px rgba(0, 0, 0, .2);
+    font-size: 14px;
+    padding: 8px 24px;
+    border: none;
+    outline: none;
+    margin-bottom: 50px;
+    font-family: 'Nunito';
+    font-weight: 600;
+    transition: .3s all ease-in-out;
+
+    i {
+      margin-right: 8px;
+    }
+
+    &:hover {
+      background-color: hsl(0, 0%, 98%);
     }
   }
 </style>
