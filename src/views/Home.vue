@@ -1,9 +1,5 @@
 <template>
-  <div class="top-bar">
-    <div class="container">
-      <h2 class="heading-2">Where in the world?</h2>
-    </div>
-  </div>
+  <main-nav></main-nav>
 
   <div class="container">
     <div class="search-filter-group">
@@ -40,11 +36,12 @@
 
 <script>
 import CountryCard from '../components/CountryCard.vue'
+import MainNav from '../components/MainNav.vue'
 
 export default {
   name: 'Home',
   components: {
-    CountryCard
+    CountryCard, MainNav
   },
   data() {
     return {
@@ -101,17 +98,6 @@ export default {
 </script>
 
 <style lang='scss'>
-  .top-bar {
-    background-color: white;
-    box-shadow: 1px 1px 10px rgba(0, 0, 0, .1);
-    padding: 24px 0;
-    margin-bottom: 42px;
-
-    h2 {
-      color: hsl(209, 23%, 22%);
-    }
-  }
-
   .search-filter-group {
     display: flex;    
     align-items: center;
