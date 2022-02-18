@@ -3,7 +3,7 @@
     <img class="country-flag" :src="country.flag" alt="country flag">
     <div class="country-details">
       <h4 class="heading-3">{{ country.name }}</h4>
-      <p class="body-text-sm"><span>Population:</span> {{ country.population }}</p>
+      <p class="body-text-sm"><span>Population:</span> {{ Number(country.population).toLocaleString()}}</p>
       <p class="body-text-sm"><span>Region:</span> {{ country.region }}</p>
       <p class="body-text-sm"><span>Capital:</span> {{ country.capital }}</p>
     </div>

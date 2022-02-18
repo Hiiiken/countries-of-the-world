@@ -7,7 +7,7 @@
       Back
     </button>
 
-    <div v-for="item in country" :key="item">
+    <div v-for="item in country" :key="item" class="country-info">
       <div class="grid">
         <div class="col col-lg">
           <img class="country-flag" :src="item.flag" alt="country flag">
@@ -27,7 +27,7 @@
                   <li>
                     <p>
                       <span class="title">Population:</span> 
-                      {{ item.population }}
+                      {{ Number(item.population).toLocaleString() }}
                     </p>
                   </li>
                   <li>
@@ -70,15 +70,15 @@
                   <li>
                     <div class="country-languages">
                       <span class="title">Languages: </span>
-                      <span v-for="lang in item.languages" :key="lang">
-                        {{ lang.name }}
+                      <span v-for="(lang, index) in item.languages" :key="lang">
+                        {{ lang.name }}<span v-if="index + 1 < item.languages.length">, </span>
                       </span>
                     </div>
                   </li>
                 </ul>
               </div>
             </div>
-            <div class="border-countries">
+            <div class="border-countries" v-if="item.borders">
               <span class="title">Border Countries: </span>
               <span @click="borderCountry($event)" class="border-country" v-for="borderC in item.borders" :key="borderC">
                 {{ borderC }}
@@ -138,6 +138,10 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+  .country-info {
+    margin-bottom: 50px;
+  }
+
   .country-flag {
     vertical-align: middle;
     width: 100%;
@@ -181,11 +185,15 @@ export default {
 
     .border-countries {
       margin-top: 50px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-start;
+      align-items: center;
     }
 
     .border-country {
       background-color: white;
-      margin: 0 4px;
+      margin: 4px;
       padding: 2px 16px;
       border-radius: 3px;
       box-shadow: 1px 1px 5px rgba(0, 0, 0, .07);
@@ -208,7 +216,7 @@ export default {
     }
     
     @media only screen and (max-width: 744px) {
-      padding: 24px 0 50px;
+      padding: 24px 0 0;
     }
   }
 
