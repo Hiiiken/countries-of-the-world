@@ -1,8 +1,6 @@
 <template>
   <main-nav></main-nav>
 
-  <div>{{ country }}</div>
-
   <div class="container">
     <button class="btn-back" @click="backButton()">
       <i class="fa-solid fa-arrow-left-long"></i>
@@ -21,19 +19,34 @@
               <div class="col">
                 <ul>
                   <li>
-                    <p><span class="title">Native Name:</span> {{ item.nativeName }}</p>
+                    <p>
+                      <span class="title">Native Name:</span> 
+                      {{ item.nativeName }}
+                    </p>
                   </li>
                   <li>
-                    <p><span class="title">Population:</span> {{ item.population }}</p>
+                    <p>
+                      <span class="title">Population:</span> 
+                      {{ item.population }}
+                    </p>
                   </li>
                   <li>
-                    <p><span class="title">Region:</span> {{ item.region }}</p>
+                    <p>
+                      <span class="title">Region:</span> 
+                      {{ item.region }}
+                    </p>
                   </li>
                   <li>
-                    <p><span class="title">Sub Region:</span> {{ item.subregion }}</p>
+                    <p>
+                      <span class="title">Sub Region:</span> 
+                      {{ item.subregion }}
+                    </p>
                   </li>
                   <li>
-                   <p><span class="title">Capital:</span> {{ item.capital }}</p>
+                   <p>
+                     <span class="title">Capital:</span> 
+                     {{ item.capital }}
+                    </p>
                   </li>
                 </ul>
               </div>
@@ -67,7 +80,7 @@
             </div>
             <div class="border-countries">
               <span class="title">Border Countries: </span>
-              <span class="border-country" v-for="borderC in item.borders" :key="borderC">
+              <span @click="borderCountry($event)" class="border-country" v-for="borderC in item.borders" :key="borderC">
                 {{ borderC }}
               </span>
             </div>
@@ -89,7 +102,8 @@ export default {
   },
   data() {
     return {
-      country: []
+      country: [],
+      countries: []
     }
   },
   created() {
@@ -98,12 +112,26 @@ export default {
       .then(response => (this.country = response.data))
       .catch(error => {
         console.log(error)
-        // this.errored = true
       })
+
+    axios
+    .get('https://restcountries.com/v2/all')
+    .then(response => (this.countries = response.data))
+    .catch(error => {
+      console.log(error)
+    })
   },
   methods: {
     backButton() {
       this.$router.push('/'); 
+    },
+    borderCountry(event) {
+      let alphaCode = event.target.innerText
+      this.countries.forEach((country) => {
+        if(alphaCode === country.alpha3Code) {
+          this.$router.push('/country/' + country.name);
+        }
+      }) 
     }
   }
 }
@@ -152,6 +180,7 @@ export default {
       border-radius: 3px;
       box-shadow: 1px 1px 5px rgba(0, 0, 0, .07);
       font-size: 14px;
+      cursor: pointer;
     }
   }
 
