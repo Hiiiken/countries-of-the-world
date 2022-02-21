@@ -55,7 +55,7 @@
                   <li>
                     <div class="country-domains">
                       <span class="title">Top Level Domain: </span>
-                      <span v-for="domain in item.topLevelDomain" :key="domain">
+                      <span v-for="domain in item.topLevelDomain" :key="domain" class="country-domain">
                         {{ domain }}
                       </span>
                     </div>
@@ -70,7 +70,7 @@
                   <li>
                     <div class="country-languages">
                       <span class="title">Languages: </span>
-                      <span v-for="(lang, index) in item.languages" :key="lang">
+                      <span v-for="(lang, index) in item.languages" :key="lang" class="country-lang">
                         {{ lang.name }}<span v-if="index + 1 < item.languages.length">, </span>
                       </span>
                     </div>
@@ -168,19 +168,19 @@ export default {
     }
 
     p {
-      color: hsl(200, 15%, 8%);
+      color: var(--text-primary-color);
     }
 
     span.title {
       font-weight: 600;
-      color: hsl(200, 15%, 8%);
+      color: var(--text-primary-color);
     }
 
     .country-title {
       margin-bottom: 24px;
       font-size: 28px;
       font-weight: 800;
-      color: hsl(200, 15%, 8%);
+      color: var(--text-primary-color);
     }
 
     .border-countries {
@@ -192,9 +192,10 @@ export default {
     }
 
     .border-country {
-      background-color: white;
+      background-color: var(--background-color-secondary);
+      color: var(--text-primary-color);
       margin: 4px;
-      padding: 2px 16px;
+      padding: 4px 16px;
       border-radius: 3px;
       box-shadow: 1px 1px 5px rgba(0, 0, 0, .07);
       font-size: 14px;
@@ -202,9 +203,13 @@ export default {
       transition: .3s all ease-in-out;
 
       &:hover {
-        background-color: hsl(209, 23%, 22%);
-        color: white;
+        background-color: var(--background-color-primary);
+        color: var(--text-primary-color);
       }
+    }
+
+    .country-lang, .country-domain {
+      color: var(--text-primary-color);
     }
 
     @media only screen and (max-width: 1200px) {
@@ -221,7 +226,8 @@ export default {
   }
 
   .btn-back {
-    background-color: white;
+    background-color: var(--background-color-secondary);
+    color: var(--text-primary-color);
     cursor: pointer;
     border-radius: 3px;
     box-shadow: 1px 1px 8px rgba(0, 0, 0, .2);
@@ -239,8 +245,8 @@ export default {
     }
 
     &:hover {
-      background-color: hsl(209, 23%, 22%);
-      color: white;
+      background-color: var(--background-color-primary);
+      color: var(--text-primary-color);
     }
   }
 </style>

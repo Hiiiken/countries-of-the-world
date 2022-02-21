@@ -2,7 +2,7 @@
   <div class="country-card" @click="aboutCountry()">
     <img class="country-flag" :src="country.flag" alt="country flag">
     <div class="country-details">
-      <h4 class="heading-3">{{ country.name }}</h4>
+      <h3 class="heading-3">{{ country.name }}</h3>
       <p class="body-text-sm"><span>Population:</span> {{ Number(country.population).toLocaleString()}}</p>
       <p class="body-text-sm"><span>Region:</span> {{ country.region }}</p>
       <p class="body-text-sm"><span>Capital:</span> {{ country.capital }}</p>
@@ -24,7 +24,7 @@
 
 <style lang="scss">
   .country-card {
-    background-color: white;
+    background-color: var(--background-color-secondary);;
     border-radius: 4px;
     box-shadow: 1px 1px 20px rgba(0, 0, 0, .05);
     margin-bottom: 48px;

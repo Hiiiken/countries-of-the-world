@@ -1,20 +1,20 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300;600;800&display=swap');
 
 body {
-  background-color: hsl(0, 0%, 98%);
+  background-color: var(--background-color-primary);
   font-family: 'Nunito';
 }
 
 .body-text {
   font-size: 16px;
-  color: hsl(200, 15%, 8%);
+  color: var(--text-primary-color);
   font-weight: 300;
   line-height: 1.5em;
 }
 
 .body-text-sm {
   font-size: 14px;
-  color: hsl(200, 15%, 8%);
+  color: var(--text-primary-color);
   font-weight: 300;
   line-height: 1.5em;
 }
@@ -26,36 +26,39 @@ body {
 .heading-1 {
   font-size: 32px;
   font-weight: 800;
+  color: var(--text-primary-color);
 }
 
 .heading-2 {
   font-size: 24px;
   font-weight: 800;
+  color: var(--text-primary-color);
 }
 
 .heading-3 {
   font-size: 18px;
   font-weight: 800;
+  color: var(--text-primary-color);
 }
 
 // PLACEHOLDER STYLES
 ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
   font-family: 'Nunito', sans-serif;
   font-size: 14px;
-  color: hsl(0, 0%, 52%);
+  color: var(--text-primary-color)
 }
 ::-moz-placeholder { /* Firefox 19+ */
   font-family: 'Nunito', sans-serif;
   font-size: 14px;
-  color: hsl(0, 0%, 52%);;
+  color: var(--text-primary-color);
 }
 :-ms-input-placeholder { /* IE 10+ */
   font-family: 'Nunito', sans-serif;
   font-size: 14px;
-  color: hsl(0, 0%, 52%);;
+  color: var(--text-primary-color);
 }
 :-moz-placeholder { /* Firefox 18- */
   font-family: 'Nunito', sans-serif;
   font-size: 14px;
-  color: hsl(0, 0%, 52%);;
+  color: var(--text-primary-color);
 }

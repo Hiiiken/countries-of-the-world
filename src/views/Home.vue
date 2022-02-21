@@ -35,8 +35,8 @@
 </template>
 
 <script>
-import CountryCard from '../components/CountryCard.vue'
 import MainNav from '../components/MainNav.vue'
+import CountryCard from '../components/CountryCard.vue'
 
 export default {
   name: 'Home',
@@ -105,7 +105,7 @@ export default {
     margin-bottom: 42px;
 
     .serach-box {
-      background-color: white;
+      background-color: var(--background-color-secondary);
       box-shadow: 1px 1px 20px rgba(0, 0, 0, .05);
       padding: 16px 30px;
       border-radius: 4px;
@@ -117,16 +117,17 @@ export default {
 
       i {
         margin-right: 20px;
-        color: hsl(0, 0%, 52%);
+        color: var(--text-primary-color);
       }
 
       input {
         border: none;
         font-family: 'Nunito', sans-serif;
         font-weight: 600;
-        color: hsl(209, 23%, 22%);
+        color: var(--text-primary-color);
         min-width: 350px;
         font-size: 14px;
+        background: transparent;
 
         &:focus {
           outline: none;
@@ -150,7 +151,7 @@ export default {
       }
 
       select {
-        background-color: white;
+        background-color: var(--background-color-secondary);
         box-shadow: 1px 1px 20px rgba(0, 0, 0, .05);
         padding: 16px 16px;
         border-radius: 4px;
@@ -159,6 +160,7 @@ export default {
         font-weight: 600;
         font-size: 14px;
         transition: .3s all ease-in-out;
+        color: var(--text-primary-color);
   
         &:focus {
           // border: 2px solid hsl(209, 23%, 22%);
@@ -173,7 +175,7 @@ export default {
   
         option {
           font-weight: 600;
-          background: white;
+          background: var(--background-color-secondary);
           border-radius: 4px;
         }
 
@@ -181,8 +183,6 @@ export default {
           width: 100%;
         }
       }
-
-      
     }
 
     @media only screen and (max-width: 520px) {
