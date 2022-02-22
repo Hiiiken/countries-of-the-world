@@ -4,6 +4,7 @@
 This is a solution to the [REST Countries API with color theme switcher challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/rest-countries-api-with-color-theme-switcher-5cacc469fec04111f7b848ca).
 
 ### Features
+
 Users should be able to:
 
 - See all countries from the API on the homepage
@@ -12,6 +13,10 @@ Users should be able to:
 - Click on a country to see more detailed information on a separate page
 - Click through to the border countries on the detail page
 - Toggle the color scheme between light and dark mode
+
+### Links
+
+- Live Preview: [https://world-countries-vue.netlify.app/]
 
 ### What I learned
 This was a fun project where I got to practice VueJS more and learn how to get data from an API and display it the way I want in the page. And how to filter that data depending on the user's input.
