@@ -16,7 +16,7 @@ Users should be able to:
 
 ### Links
 
-- Live Preview: [https://world-countries-vue.netlify.app/]
+- Live Preview: [Countries of The World](https://world-countries-vue.netlify.app/)
 
 ### What I learned
 This was a fun project where I got to practice VueJS more and learn how to get data from an API and display it the way I want in the page. And how to filter that data depending on the user's input.
